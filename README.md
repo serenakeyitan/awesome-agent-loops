@@ -2,31 +2,31 @@
 
 ![License: CC BY 4.0](https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg)
 
-Claude Code & Codex Loops ⚡️
-> A curated collection of the best **`/loop`, `/goal`, and `/schedule`** uses — sourced from Twitter/X power users who stopped prompting one step at a time and started running loops.
+Claude Code Loops ⚡️
+> A curated collection of the best **`/loop`, `/goal`, and `/schedule`** prompts — copy-paste commands sourced from Twitter/X power users who stopped prompting one step at a time and started running loops.
 
-These are the three built-in ways to make a coding agent keep working on its own: **`/loop`** re-runs a prompt on an interval, **`/goal`** runs until a condition is true, and **`/schedule`** runs in the cloud on a cron. No plugins, no harnesses — just commands you can paste into Claude Code (and Codex) today.
+These are the three built-in ways to make a coding agent keep working on its own: **`/loop`** re-runs a prompt on an interval, **`/goal`** runs until a condition is true, and **`/schedule`** runs in the cloud on a cron. No plugins, no harnesses — just commands you paste into Claude Code today. (`/goal` also exists in Codex, though it tracks a target rather than looping on its own.)
 
-Every entry below is a real command someone actually ran, with the tweet it came from. If you want your agent to have a heartbeat, **this is the repo!**
+Every prompt below is copy-paste-ready and sourced to the tweet it came from. Swap in your own repo, PR number, or condition and run it. If you want your agent to have a heartbeat, **this is the repo!**
 
 ## Table of Contents
 
 ### A. `/loop` — run a prompt on an interval
-- [Babysit a deploy / PRs / flaky tests](#babysit-a-deploy--prs--flaky-tests)
-- [The basic shape: interval + prompt](#the-basic-shape-interval--prompt)
-- [Loop another slash command](#loop-another-slash-command)
-- [`/loop` vs `/goal`, in one tweet](#loop-vs-goal-in-one-tweet)
+- [Watch a deploy and report when it changes](#watch-a-deploy-and-report-when-it-changes)
+- [Re-check flaky tests on an interval](#re-check-flaky-tests-on-an-interval)
+- [Babysit a PR on a schedule](#babysit-a-pr-on-a-schedule)
+- [Poll an open PR's CI and ping when green](#poll-an-open-prs-ci-and-ping-when-green)
 
 ### B. `/goal` — run until a condition is true
 - [The $200/hr QA engineer](#the-200hr-qa-engineer)
 - [Write goals like acceptance criteria](#write-goals-like-acceptance-criteria)
-- [One `/goal` run beats orchestration](#one-goal-run-beats-orchestration)
+- [Migrate a codebase, end to end](#migrate-a-codebase-end-to-end)
 - [`/goal` + subagents](#goal--subagents)
 - [`/goal` for firmware / hardware](#goal-for-firmware--hardware)
 
 ### C. `/schedule` — run in the cloud on a cron
-- [Routines: prompt + repo + connectors, 7×24](#routines-prompt--repo--connectors-724)
-- [Three triggers: schedule, GitHub event, API](#three-triggers-schedule-github-event-api)
+- [Triage new issues every morning](#triage-new-issues-every-morning)
+- [Keep docs in sync on every push to main](#keep-docs-in-sync-on-every-push-to-main)
 
 ---
 
@@ -34,44 +34,43 @@ Every entry below is a real command someone actually ran, with the tweet it came
 
 `/loop` re-runs a prompt (or another slash command) on a time interval, then goes dormant between runs. Press `Esc` to stop. Good for polling and watching. ([docs](https://code.claude.com/docs/en/scheduled-tasks))
 
-### Babysit a deploy / PRs / flaky tests
+### Watch a deploy and report when it changes
 
 ```
-/loop poll the deployment, babysit the open PRs, and re-check the flaky tests
+/loop 5m check the status of the latest deployment with `gh run list --limit 1`, and if it changed since last check, summarize what changed and whether it succeeded
 ```
 
-> "Just found the most underrated thing in Claude Code: `/loop`. Give it a prompt (or a slash command) + an interval, and it just keeps running. Polling a deploy. Babysitting PRs. Re-checking flaky tests. Set it once, walk away. Your AI agent finally has a heartbeat."
+> "Polling a deploy. Babysitting PRs. Re-checking flaky tests. Set it once, walk away. Your AI agent finally has a heartbeat."
 
 *source: https://x.com/abfayy/status/2064131017225752786*
 
-### The basic shape: interval + prompt
+### Re-check flaky tests on an interval
 
 ```
-/loop 10m check the deployment status
+/loop 15m run the test suite, and if anything fails, show me the failing tests and the error output
 ```
 
-The mechanic is `/loop <interval> <prompt>` — Claude schedules the task and runs it for you automatically. The catch: it stops when you close the terminal (use `/schedule` for cloud runs that survive).
+The shape is `/loop <interval> <prompt>` — Claude schedules it and runs automatically. Note: it stops when you close the terminal (use `/schedule` for runs that survive).
 
 *source: https://x.com/cnemalek/status/2062977991328583923*
 
-### Loop another slash command
+### Babysit a PR on a schedule
 
 ```
 /loop 20m /review-pr 1234
 ```
 
-The prompt can be another slash command — this is how Boris Cherny works now: he doesn't prompt anymore, he writes loops that prompt Claude.
+The prompt can be another slash command. This is how Boris Cherny works now — he doesn't prompt anymore, he writes loops that prompt Claude.
 
 *source: https://x.com/0xAndros/status/2064063929517777147*
 
-### `/loop` vs `/goal`, in one tweet
+### Poll an open PR's CI and ping when green
 
 ```
-/loop   → re-runs a prompt on a time interval (polling, watching, scheduled checks)
-/goal   → set a completion condition; Claude keeps going until it's met
+/loop 10m run `gh pr checks 1234`; if all checks pass, tell me it's ready to merge; if any fail, summarize which ones and why
 ```
 
-> "For anyone wondering what `/goal` and `/loop` do in Claude Code: `/loop` re-runs a prompt on a time interval… `/goal` is the more powerful one. You set a completion condition, and Claude keeps going."
+`/loop` is the right tool when you want to *watch* something on a clock rather than drive an agent to completion (that's `/goal`).
 
 *source: https://x.com/louiswharmby/status/2063962089819869227*
 
@@ -101,15 +100,15 @@ The single most-shared `/goal` invocation on X. One sentence and the agent fixes
 
 *source: https://x.com/akshay_pachaar/status/2055208848609460525*
 
-### One `/goal` run beats orchestration
+### Migrate a codebase, end to end
 
 ```
-/goal <your task>   # one agent, no orchestration
+/goal every file importing from `./legacy-api` is migrated to `./v2-api`, all tests pass, and `npm run typecheck` is clean — stop after 30 turns
 ```
 
 > "A SINGLE CODEX `/goal` RUN IS THE CLEAR WINNER. NO ORCHESTRATION, NO OUROBOROS, JUST ONE LITTLE AGENT THAT COULD 🤯 — it completely destroyed the Opus orchestration setup."
 
-Before reaching for a multi-agent harness, try one `/goal`.
+Before reaching for a multi-agent harness, try one `/goal` with a clear finish line.
 
 *source: https://x.com/KingBootoshi/status/2060068980728184842*
 
@@ -139,20 +138,20 @@ Before reaching for a multi-agent harness, try one `/goal`.
 
 `/schedule` saves a Routine — a prompt + repo + connectors that runs on Anthropic's cloud on a schedule (min interval 1 hour), so it keeps running with your computer off. ([docs](https://code.claude.com/docs/en/routines))
 
-### Routines: prompt + repo + connectors, 7×24
+### Triage new issues every morning
 
 ```
-/schedule every morning at 9am, triage new issues in this repo and label them
+/schedule every weekday at 9am, label any new issues opened in the last 24h by area and priority, and post a one-line summary of each as a comment
 ```
 
 > "Configure once — prompt + repo + connectors — and it runs 7×24 in Anthropic's cloud. Runs even with your computer off. Cron down to a 1-hour minimum interval, plus a dedicated API endpoint per routine."
 
 *source: https://x.com/chenchengpro/status/2044212236881932637*
 
-### Three triggers: schedule, GitHub event, API
+### Keep docs in sync on every push to main
 
 ```
-/schedule on every push to main, update the docs and the backlog
+/schedule on every push to main, check whether the changed code drifted from the docs in /docs, and open a PR fixing any docs that are now out of date
 ```
 
 > "Claude Code Routines are here — trigger agents on a schedule, from a GitHub event, or via API. Anthropic uses this internally for docs and backlog maintenance and it changed how they work."
