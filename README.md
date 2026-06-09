@@ -13,14 +13,18 @@ Every prompt below is copy-paste-ready and sourced to the tweet it came from. Sw
 
 ### A. `/loop` — run a prompt on an interval
 - [Watch a deploy and report when it changes](#watch-a-deploy-and-report-when-it-changes)
+- [Flaky-test exterminator](#flaky-test-exterminator)
 - [Re-check flaky tests on an interval](#re-check-flaky-tests-on-an-interval)
 - [Babysit a PR on a schedule](#babysit-a-pr-on-a-schedule)
+- [PR Babysitter: keep watched PRs healthy](#pr-babysitter-keep-watched-prs-healthy)
 - [Poll an open PR's CI and ping when green](#poll-an-open-prs-ci-and-ping-when-green)
 
 ### B. `/goal` — run until a condition is true
 - [The $200/hr QA engineer](#the-200hr-qa-engineer)
 - [Write goals like acceptance criteria](#write-goals-like-acceptance-criteria)
 - [Migrate a codebase, end to end](#migrate-a-codebase-end-to-end)
+- [Ship a PR until CI is green](#ship-a-pr-until-ci-is-green)
+- [Add tests until coverage hits the threshold](#add-tests-until-coverage-hits-the-threshold)
 - [`/goal` + subagents](#goal--subagents)
 - [`/goal` for firmware / hardware](#goal-for-firmware--hardware)
 
@@ -44,6 +48,16 @@ Every prompt below is copy-paste-ready and sourced to the tweet it came from. Sw
 
 *source: https://x.com/abfayy/status/2064131017225752786*
 
+### Flaky-test exterminator
+
+```
+/loop run my test suite 20 times, collect every intermittent failure, fix or quarantine the flaky ones, and don't stop until you get 5 consecutive fully-green runs
+```
+
+No interval — let Claude self-pace and end the loop itself once the exit condition (5 green runs in a row) is provably met.
+
+*source: https://x.com/ericzakariasson/status/2064122350866682100*
+
 ### Re-check flaky tests on an interval
 
 ```
@@ -63,6 +77,16 @@ The shape is `/loop <interval> <prompt>` — Claude schedules it and runs automa
 The prompt can be another slash command. This is how Boris Cherny works now — he doesn't prompt anymore, he writes loops that prompt Claude.
 
 *source: https://x.com/0xAndros/status/2064063929517777147*
+
+### PR Babysitter: keep watched PRs healthy
+
+```
+/loop 15m check every open PR labeled `codex-watch` and make sure each is healthy — CI green, rebased on main, and not stale; fix CI failures, rebase when behind, and nudge if a review is pending
+```
+
+A 15-minute watchdog over a labeled set of PRs. (Popularized as a "PR Babysitter" loop credited to boris-cherny in the [loops!](https://loops.elorm.xyz/loops) catalog.)
+
+*source: https://loops.elorm.xyz/loops*
 
 ### Poll an open PR's CI and ping when green
 
@@ -112,6 +136,26 @@ Before reaching for a multi-agent harness, try one `/goal` with a clear finish l
 
 *source: https://x.com/KingBootoshi/status/2060068980728184842*
 
+### Ship a PR until CI is green
+
+```
+/goal a PR is open for this change and every CI check passes — implement the change, test locally, push, open the PR with `gh pr create`, then keep fixing failures (re-checking with `gh pr checks`) until all checks are green; stop after 10 turns
+```
+
+The most-copied loop in the [loops!](https://loops.elorm.xyz/loops) catalog — drives the whole implement → push → PR → fix-CI cycle to a green finish.
+
+*source: https://loops.elorm.xyz/loops*
+
+### Add tests until coverage hits the threshold
+
+```
+/goal test coverage is at least 80% with all tests passing — add focused tests for the least-covered files, re-run coverage each turn, and stop once the threshold is met or after 12 turns
+```
+
+A bounded `/goal` with a numeric end state. Swap in your own threshold.
+
+*source: https://loops.elorm.xyz/loops*
+
 ### `/goal` + subagents
 
 ```
@@ -157,6 +201,12 @@ Before reaching for a multi-agent harness, try one `/goal` with a clear finish l
 > "Claude Code Routines are here — trigger agents on a schedule, from a GitHub event, or via API. Anthropic uses this internally for docs and backlog maintenance and it changed how they work."
 
 *source: https://x.com/starmexxx/status/2044653921629606204*
+
+---
+
+## More loops
+
+- [loops!](https://loops.elorm.xyz/loops) by [elorm](https://elorm.xyz) — a searchable catalog of 40+ ready-to-copy loops (Ship PR Until Green, Coverage Until Threshold, Migration Until Applied, …) for Claude Code, Cursor, and Codex.
 
 ---
 
