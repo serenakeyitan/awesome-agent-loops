@@ -24,6 +24,10 @@ Copy any prompt, swap in your repo / PR / condition, run it.
 - [Migrate an API](#migrate-an-api) · move every call site, keep green
 - [Ship a PR until green](#ship-a-pr-until-green) · implement → PR → fix CI
 - [Reach coverage target](#reach-coverage-target) · add tests until 80%
+- [Get the build green](#get-the-build-green) · fix errors until build passes
+- [Clean up the slop](#clean-up-the-slop) · strip debug code, dead branches
+- [Apply DB migrations](#apply-db-migrations) · run + fix until status clean
+- [Format until clean](#format-until-clean) · run formatter until no diff
 - [Refactor with subagents](#refactor-with-subagents) · fan out across a module
 - [Flash firmware](#flash-firmware) · loop until the hardware behaves
 
@@ -145,6 +149,48 @@ threshold or after 12 turns
 ```
 
 A bounded `/goal` with a numeric end state. Swap in your own threshold. [source](https://loops.elorm.xyz/loops)
+
+### Get the build green
+
+```
+/goal `npm run build` exits 0 — run the build, fix
+the first error, repeat until it succeeds; stop after
+10 turns
+```
+
+Iteratively clears compile and bundling errors until the production build passes. [source](https://loops.elorm.xyz/loops)
+
+### Clean up the slop
+
+```
+/goal the recent diff is clean and convention-aligned
+— review it for debug code, dead branches, and bad
+names, fix with minimal edits until `npm run lint &&
+npm test` passes; stop after 4 turns
+```
+
+The "De-Sloppify Pass" — second most-copied loop in the [loops!](https://loops.elorm.xyz/loops) catalog. Great after an agent leaves a mess. [source](https://loops.elorm.xyz/loops)
+
+### Apply DB migrations
+
+```
+/goal all database migrations apply cleanly — run
+them, fix schema or SQL errors, repeat until
+`npx prisma migrate status` is clean; stop after 6
+turns
+```
+
+Keeps applying and repairing migrations until the status check comes back clean. [source](https://loops.elorm.xyz/loops)
+
+### Format until clean
+
+```
+/goal `npm run format` leaves no diff — run the
+formatter, hand-fix anything it can't auto-fix, repeat
+until `git diff` is empty
+```
+
+Runs the formatter on repeat and fixes whatever it can't auto-resolve. [source](https://loops.elorm.xyz/loops)
 
 ### Refactor with subagents
 
