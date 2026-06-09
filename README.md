@@ -2,6 +2,8 @@
 
 ![License: CC BY 4.0](https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg)
 
+### check out my latest work, and run `/loop` in [first-tree](https://github.com/agent-team-foundation/first-tree) free :D
+
 Claude Code Loops ⚡️
 > The best **`/loop`, `/goal`, and `/schedule`** prompts — copy-paste commands from X power users who stopped prompting one step at a time and started running loops.
 
