@@ -1,47 +1,44 @@
 # Contributing
 
-Thanks for helping grow this list. The goal is a catalog of **agent loops you can actually set up in Claude Code or OpenAI Codex** — not a list of ideas or theory.
+Thanks for helping grow this list. It collects **real `/loop`, `/goal`, and `/schedule` uses** people posted on X — nothing else.
 
 ## What belongs here
 
-An entry must be a loop a reader can copy and run. That means one of:
-
-- A **built-in** command or flag (`/loop`, `/goal`, `codex exec`, `claude -p`, a `Stop` hook).
-- A **harness or orchestrator** repo that runs an agent in a loop.
-- A **concrete workflow** someone actually ran, with the setup shown and a source linked.
-
-If you can't show how to set it up, it doesn't go in.
+- One of the three built-in commands: **`/loop`**, **`/goal`**, or **`/schedule`** (Claude Code, and Codex where it applies).
+- A **real use** someone actually posted — not a hypothetical.
+- The **actual command** in a code block.
+- The **tweet** it came from, linked as `*source:*`.
 
 ## What doesn't
 
-- Vaporware, "coming soon," or paywalled-only tools with no runnable path.
-- Generic "AI agent" projects that don't loop.
-- Pure essays or hot takes with no loop you can run.
-- Archived or unmaintained repos.
+- Hooks, headless `while` loops, orchestrators, SDKs, plugins — this list is only the three built-in commands.
+- "You could do X" with no command and no source.
+- Dead or unverifiable tweet links.
 
 ## Entry format
 
-One bullet, link first, description ends with a period:
+Match the existing entries exactly:
 
+```markdown
+### Short title for the use
+
+​```
+/goal the actual command someone ran
+​```
+
+> Optional pull-quote from the tweet.
+
+A line on what it does / when to reach for it.
+
+*source: https://x.com/handle/status/1234567890*
 ```
-- [name](https://link) - What it does and how to set it up, in one or two sentences. Source/credit if it came from a post.
-```
 
-- Start with the link. Use `https`, no trailing slash.
-- Separator between link and description is space-hyphen-space (` - `).
-- Show the actual command or config when it's short enough to inline.
-- If the loop came from someone's post, credit them (`Shared by [@handle](https://x.com/handle).`).
-- Put the entry in the section that matches its **mechanism** (built-in / hook / headless / orchestrator / in-the-wild).
-
-## Before you open a PR
-
-- Check that every URL you added resolves (no 404s).
-- Confirm the setup syntax is correct against the tool's official docs — wrong commands are worse than no entry.
-- Run `npx awesome-lint` if you can; fix what it flags.
-- One entry per PR keeps review easy.
+- Put it under the right section: A (`/loop`), B (`/goal`), or C (`/schedule`).
+- Add a Table of Contents link for your entry.
+- Confirm the `*source:*` tweet actually resolves before submitting.
 
 ## How to submit
 
 1. Fork the repo.
-2. Add your entry to the right section of `README.md`.
-3. Open a pull request describing the loop and linking your source.
+2. Add your entry to the right section of `README.md` and a TOC link.
+3. Open a pull request with the source tweet in the description.
