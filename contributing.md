@@ -7,7 +7,7 @@ Thanks for helping grow this list. It collects **real `/loop`, `/goal`, and `/sc
 - One of the three built-in commands: **`/loop`**, **`/goal`**, or **`/schedule`** (Claude Code, and Codex where it applies).
 - A **real use** someone actually posted — not a hypothetical.
 - The **actual command** in a code block.
-- The **tweet** it came from, linked as `*source:*`.
+- The **tweet** it came from, linked as `[source](url)`.
 
 ## What doesn't
 
@@ -30,12 +30,12 @@ Match the existing entries exactly:
 
 A line on what it does / when to reach for it.
 
-*source: https://x.com/handle/status/1234567890*
+[source](https://x.com/handle/status/1234567890)
 ```
 
 - Put it under the right section: A (`/loop`), B (`/goal`), or C (`/schedule`).
 - Add a Table of Contents link for your entry.
-- Confirm the `*source:*` tweet actually resolves before submitting.
+- Confirm the `[source](url)` link actually resolves before submitting.
 
 ## How to submit
 

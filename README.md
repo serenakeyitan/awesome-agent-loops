@@ -12,7 +12,6 @@ Every prompt below is copy-paste-ready and sourced to the tweet it came from. Sw
 ## Table of Contents
 
 ### A. `/loop` — run a prompt on an interval
-- [Watch a deploy and report when it changes](#watch-a-deploy-and-report-when-it-changes)
 - [Flaky-test exterminator](#flaky-test-exterminator)
 - [Re-check flaky tests on an interval](#re-check-flaky-tests-on-an-interval)
 - [Babysit a PR on a schedule](#babysit-a-pr-on-a-schedule)
@@ -38,16 +37,6 @@ Every prompt below is copy-paste-ready and sourced to the tweet it came from. Sw
 
 `/loop` re-runs a prompt (or another slash command) on a time interval, then goes dormant between runs. Press `Esc` to stop. Good for polling and watching. ([docs](https://code.claude.com/docs/en/scheduled-tasks))
 
-### Watch a deploy and report when it changes
-
-```
-/loop 5m check the status of the latest deployment with `gh run list --limit 1`, and if it changed since last check, summarize what changed and whether it succeeded
-```
-
-> "Polling a deploy. Babysitting PRs. Re-checking flaky tests. Set it once, walk away. Your AI agent finally has a heartbeat."
-
-*source: https://x.com/abfayy/status/2064131017225752786*
-
 ### Flaky-test exterminator
 
 ```
@@ -56,7 +45,7 @@ Every prompt below is copy-paste-ready and sourced to the tweet it came from. Sw
 
 No interval — let Claude self-pace and end the loop itself once the exit condition (5 green runs in a row) is provably met.
 
-*source: https://x.com/ericzakariasson/status/2064122350866682100*
+[source](https://x.com/ericzakariasson/status/2064122350866682100)
 
 ### Re-check flaky tests on an interval
 
@@ -66,7 +55,7 @@ No interval — let Claude self-pace and end the loop itself once the exit condi
 
 The shape is `/loop <interval> <prompt>` — Claude schedules it and runs automatically. Note: it stops when you close the terminal (use `/schedule` for runs that survive).
 
-*source: https://x.com/cnemalek/status/2062977991328583923*
+[source](https://x.com/cnemalek/status/2062977991328583923)
 
 ### Babysit a PR on a schedule
 
@@ -76,7 +65,7 @@ The shape is `/loop <interval> <prompt>` — Claude schedules it and runs automa
 
 The prompt can be another slash command. This is how Boris Cherny works now — he doesn't prompt anymore, he writes loops that prompt Claude.
 
-*source: https://x.com/0xAndros/status/2064063929517777147*
+[source](https://x.com/0xAndros/status/2064063929517777147)
 
 ### PR Babysitter: keep watched PRs healthy
 
@@ -86,7 +75,7 @@ The prompt can be another slash command. This is how Boris Cherny works now — 
 
 A 15-minute watchdog over a labeled set of PRs. (Popularized as a "PR Babysitter" loop credited to boris-cherny in the [loops!](https://loops.elorm.xyz/loops) catalog.)
 
-*source: https://loops.elorm.xyz/loops*
+[source](https://loops.elorm.xyz/loops)
 
 ### Poll an open PR's CI and ping when green
 
@@ -96,7 +85,7 @@ A 15-minute watchdog over a labeled set of PRs. (Popularized as a "PR Babysitter
 
 `/loop` is the right tool when you want to *watch* something on a clock rather than drive an agent to completion (that's `/goal`).
 
-*source: https://x.com/louiswharmby/status/2063962089819869227*
+[source](https://x.com/louiswharmby/status/2063962089819869227)
 
 ---
 
@@ -112,7 +101,7 @@ A 15-minute watchdog over a labeled set of PRs. (Popularized as a "PR Babysitter
 
 The single most-shared `/goal` invocation on X. One sentence and the agent fixes bugs, runs checks, and ships clean — "literally a $200/hr QA engineer."
 
-*source: https://x.com/RodmanAi/status/2054975035639812170*
+[source](https://x.com/RodmanAi/status/2054975035639812170)
 
 ### Write goals like acceptance criteria
 
@@ -122,7 +111,7 @@ The single most-shared `/goal` invocation on X. One sentence and the agent fixes
 
 > "write /goals like acceptance criteria. `/goal` is now everywhere — Claude Code, Codex, Hermes — you set a completion condition, the agent works autonomously until a fast evaluator model confirms it's met."
 
-*source: https://x.com/akshay_pachaar/status/2055208848609460525*
+[source](https://x.com/akshay_pachaar/status/2055208848609460525)
 
 ### Migrate a codebase, end to end
 
@@ -134,7 +123,7 @@ The single most-shared `/goal` invocation on X. One sentence and the agent fixes
 
 Before reaching for a multi-agent harness, try one `/goal` with a clear finish line.
 
-*source: https://x.com/KingBootoshi/status/2060068980728184842*
+[source](https://x.com/KingBootoshi/status/2060068980728184842)
 
 ### Ship a PR until CI is green
 
@@ -144,7 +133,7 @@ Before reaching for a multi-agent harness, try one `/goal` with a clear finish l
 
 The most-copied loop in the [loops!](https://loops.elorm.xyz/loops) catalog — drives the whole implement → push → PR → fix-CI cycle to a green finish.
 
-*source: https://loops.elorm.xyz/loops*
+[source](https://loops.elorm.xyz/loops)
 
 ### Add tests until coverage hits the threshold
 
@@ -154,7 +143,7 @@ The most-copied loop in the [loops!](https://loops.elorm.xyz/loops) catalog — 
 
 A bounded `/goal` with a numeric end state. Swap in your own threshold.
 
-*source: https://loops.elorm.xyz/loops*
+[source](https://loops.elorm.xyz/loops)
 
 ### `/goal` + subagents
 
@@ -164,7 +153,7 @@ A bounded `/goal` with a numeric end state. Swap in your own threshold.
 
 > "Set `/goal`… Claude spawned 3 subagents: one for parser, one for UI, one for tests. All three finished." A clean example of `/goal` fanning out across a codebase.
 
-*source: https://x.com/hui1231123/status/2064147531194642525*
+[source](https://x.com/hui1231123/status/2064147531194642525)
 
 ### `/goal` for firmware / hardware
 
@@ -174,7 +163,7 @@ A bounded `/goal` with a numeric end state. Swap in your own threshold.
 
 > "I use the `/goal` skill to define exactly what the firmware should achieve… Claude writes the code and flashes it directly to the board via a J-Link debugger." `/goal` isn't just for web — anything with a verifiable end state works.
 
-*source: https://x.com/EitanRevach/status/2064135652288217093*
+[source](https://x.com/EitanRevach/status/2064135652288217093)
 
 ---
 
@@ -190,7 +179,7 @@ A bounded `/goal` with a numeric end state. Swap in your own threshold.
 
 > "Configure once — prompt + repo + connectors — and it runs 7×24 in Anthropic's cloud. Runs even with your computer off. Cron down to a 1-hour minimum interval, plus a dedicated API endpoint per routine."
 
-*source: https://x.com/chenchengpro/status/2044212236881932637*
+[source](https://x.com/chenchengpro/status/2044212236881932637)
 
 ### Keep docs in sync on every push to main
 
@@ -200,7 +189,7 @@ A bounded `/goal` with a numeric end state. Swap in your own threshold.
 
 > "Claude Code Routines are here — trigger agents on a schedule, from a GitHub event, or via API. Anthropic uses this internally for docs and backlog maintenance and it changed how they work."
 
-*source: https://x.com/starmexxx/status/2044653921629606204*
+[source](https://x.com/starmexxx/status/2044653921629606204)
 
 ---
 
@@ -212,6 +201,6 @@ A bounded `/goal` with a numeric end state. Swap in your own threshold.
 
 ## Contributing
 
-Found a great `/loop`, `/goal`, or `/schedule` use on X? Add it. The rule: it must be **one of these three built-in commands**, with the actual command in a code block and the tweet linked as `*source:*`. See [contributing.md](contributing.md).
+Found a great `/loop`, `/goal`, or `/schedule` use on X? Add it. The rule: it must be **one of these three built-in commands**, with the actual command in a code block and the tweet linked as `[source](url)`. See [contributing.md](contributing.md).
 
 [![CC BY 4.0](https://licensebuttons.net/l/by/4.0/88x31.png)](https://creativecommons.org/licenses/by/4.0/) Licensed under [CC BY 4.0](license).
