@@ -11,6 +11,8 @@ Three built-in ways to make a coding agent keep working on its own: **`/loop`** 
 
 Copy any prompt, swap in your repo / PR / condition, run it.
 
+> 🔁 **Don't want to remember any of these?** This list is the library — [**loopable**](https://github.com/serenakeyitan/loopable) is the librarian. Install it once and your agent suggests the matching loop from this list the moment your conversation gets loop-shaped. Never auto-run; you stay in charge.
+
 > **Why "loops"?** Boris Cherny, who created Claude Code, put it this way: *"I don't prompt Claude anymore. I create loops — and the loops do the work. My job is to create loops."* ([source](https://x.com/0xMovez/status/2064047579499770218)) For the longer version, [@shannholmberg](https://x.com/shannholmberg/status/2063924108535197842) wrote the best primer on what agent looping actually is.
 
 ## Table of Contents
