@@ -2,6 +2,9 @@
 
 ![License: CC BY 4.0](https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg)
 
+- check out my latest work, and run `/loop` in [first-tree](https://github.com/agent-team-foundation/first-tree) free :D
+- too lazy to remember loops? [loopable](https://github.com/serenakeyitan/loopable) suggests them while you chat, never auto-runs :)
+
 ## The shape of a perfect loop
 
 ![nested loop: /loop 30m wraps /goal, /goal wraps the /review skill](assets/nested-loop.svg)
@@ -11,10 +14,6 @@
 ```
 /loop 30m /goal all PR review comments resolved via /review, stop after 10 turns
 ```
-
-### check out my latest work, and run `/loop` in [first-tree](https://github.com/agent-team-foundation/first-tree) free :D
-
-### 🔁 too many loops to remember? [**loopable**](https://github.com/serenakeyitan/loopable) suggests the right one from this list mid-conversation — never auto-run
 
 Claude Code Loops ⚡️
 > The best **`/loop`, `/goal`, and `/schedule`** prompts — copy-paste commands from X power users who stopped prompting one step at a time and started running loops.
