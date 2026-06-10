@@ -2,6 +2,16 @@
 
 ![License: CC BY 4.0](https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg)
 
+## The shape of a perfect loop
+
+![nested loop: /loop 30m wraps /goal, /goal wraps the /review skill](assets/nested-loop.svg)
+
+**Timer outside, condition inside, skill innermost.** `/loop` re-arms it on a schedule, `/goal` defines verified-done so it can't stop early, the skill does the work well:
+
+```
+/loop 30m /goal all PR review comments resolved via /review, stop after 10 turns
+```
+
 ### check out my latest work, and run `/loop` in [first-tree](https://github.com/agent-team-foundation/first-tree) free :D
 
 ### 🔁 too many loops to remember? [**loopable**](https://github.com/serenakeyitan/loopable) suggests the right one from this list mid-conversation — never auto-run
@@ -40,18 +50,6 @@ Copy any prompt, swap in your repo / PR / condition, run it.
 **`/schedule` — cron in the cloud**
 - [Morning issue triage](#morning-issue-triage) · label + summarize daily
 - [Keep docs in sync](#keep-docs-in-sync) · on every push to main
-
----
-
-## The shape of a perfect loop
-
-![nested loop: /loop 30m wraps /goal, /goal wraps the /review skill](assets/nested-loop.svg)
-
-**Timer outside, condition inside, skill innermost.** `/loop` re-arms it on a schedule, `/goal` defines verified-done so it can't stop early, the skill does the work well:
-
-```
-/loop 30m /goal all PR review comments resolved via /review, stop after 10 turns
-```
 
 ---
 
