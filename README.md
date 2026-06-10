@@ -4,14 +4,14 @@
 
 ### check out my latest work, and run `/loop` in [first-tree](https://github.com/agent-team-foundation/first-tree) free :D
 
+### 🔁 too many loops to remember? [**loopable**](https://github.com/serenakeyitan/loopable) suggests the right one from this list mid-conversation — never auto-run
+
 Claude Code Loops ⚡️
 > The best **`/loop`, `/goal`, and `/schedule`** prompts — copy-paste commands from X power users who stopped prompting one step at a time and started running loops.
 
 Three built-in ways to make a coding agent keep working on its own: **`/loop`** re-runs a prompt on an interval, **`/goal`** runs until a condition is true, **`/schedule`** runs in the cloud on a cron. No plugins, no harnesses. (`/goal` is also in Codex, but only tracks a target.)
 
 Copy any prompt, swap in your repo / PR / condition, run it.
-
-> 🔁 **Don't want to remember any of these?** This list is the library — [**loopable**](https://github.com/serenakeyitan/loopable) is the librarian. Install it once and your agent suggests the matching loop from this list the moment your conversation gets loop-shaped. Never auto-run; you stay in charge.
 
 > **Why "loops"?** Boris Cherny, who created Claude Code, put it this way: *"I don't prompt Claude anymore. I create loops — and the loops do the work. My job is to create loops."* ([source](https://x.com/0xMovez/status/2064047579499770218)) For the longer version, [@shannholmberg](https://x.com/shannholmberg/status/2063924108535197842) wrote the best primer on what agent looping actually is.
 
@@ -40,6 +40,18 @@ Copy any prompt, swap in your repo / PR / condition, run it.
 **`/schedule` — cron in the cloud**
 - [Morning issue triage](#morning-issue-triage) · label + summarize daily
 - [Keep docs in sync](#keep-docs-in-sync) · on every push to main
+
+---
+
+## The shape of a perfect loop
+
+![nested loop: /loop 30m wraps /goal, /goal wraps the /review skill](assets/nested-loop.svg)
+
+**Timer outside, condition inside, skill innermost.** `/loop` re-arms it on a schedule, `/goal` defines verified-done so it can't stop early, the skill does the work well:
+
+```
+/loop 30m /goal all PR review comments resolved via /review, stop after 10 turns
+```
 
 ---
 

@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1640 250" font-family="ui-monospace, 'SF Mono', Menlo, monospace" font-size="36">
+  <rect x="22" y="32" width="1596" height="186" rx="34" fill="#f7ccc6" stroke="#111" stroke-width="3.5"/>
+  <text x="56" y="138" fill="#111">/loop 30m</text>
+  <rect x="278" y="58" width="1310" height="134" rx="26" fill="#bfe8c0" stroke="#111" stroke-width="3.5"/>
+  <text x="306" y="138" fill="#111">/goal all PR review comments resolved via</text>
+  <rect x="1224" y="76" width="334" height="98" rx="20" fill="#f9e9a2" stroke="#111" stroke-width="3.5"/>
+  <text x="1252" y="138" fill="#111">/review skill</text>
+</svg>
