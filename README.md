@@ -2,7 +2,7 @@
 
 ![License: CC BY 4.0](https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg)
 
-- use this [link](https://cloud.first-tree.ai/login?utm_source=github&utm_medium=readme&utm_campaign=awesome-loops-app) to use [first-tree](https://first-tree.ai/?utm_source=github&utm_medium=readme&utm_campaign=awesome-loops-site) for **free!!!** — the most efficient way to **loopmaxx your engineering work** :D
+- use this [link](https://cloud.first-tree.ai/login?utm_source=github&utm_medium=readme&utm_campaign=awesome-loops-app) to use [first-tree 🌳](https://first-tree.ai/?utm_source=github&utm_medium=readme&utm_campaign=awesome-loops-site) for **free!!!** — the most efficient way to **loopmaxx your engineering work** :D
 - too lazy to remember loops? [loopable](https://github.com/serenakeyitan/loopable) suggests them while you chat, never auto-runs :)
 
 ## The shape of a perfect loop
