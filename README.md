@@ -269,3 +269,5 @@ a PR fixing anything out of date
 Got a great `/loop`, `/goal`, or `/schedule` use from X? Add it — one of these three commands, the actual command in a code block, the tweet as `[source](url)`. See [contributing.md](contributing.md).
 
 [![CC BY 4.0](https://licensebuttons.net/l/by/4.0/88x31.png)](https://creativecommons.org/licenses/by/4.0/) Licensed under [CC BY 4.0](license).
+
+- **[Context Kit](https://github.com/JDDavenport/context-kit)** — Personal Context Artifacts: 4 Markdown templates + 5 Claude Code skills for giving AI agents deep personal context. MIT-licensed, one-command install.
