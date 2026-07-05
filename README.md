@@ -263,6 +263,7 @@ a PR fixing anything out of date
 ## More loops
 
 - [loops!](https://loops.elorm.xyz/loops) by [elorm](https://elorm.xyz) — a searchable catalog of 40+ ready-to-copy loops for Claude Code, Cursor, and Codex.
+- [looprepo.dev](https://looprepo.dev) — a safety-graded (A–F) directory of 200+ `/loop`, `/goal`, `/schedule`, and Ralph loops for Claude Code and Codex, with an agent-readable catalog (`llms.txt`, `catalog.json`, MCP endpoint) and a free harness builder.
 
 ## Contributing
 
