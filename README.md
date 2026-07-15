@@ -50,6 +50,8 @@ Copy any prompt, swap in your repo / PR / condition, run it.
 - [Morning issue triage](#morning-issue-triage) · label + summarize daily
 - [Keep docs in sync](#keep-docs-in-sync) · on every push to main
 
+- [More loops](#more-loops) · external catalogs
+
 ---
 
 ## A. `/loop` — repeat on an interval
