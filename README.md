@@ -263,6 +263,7 @@ a PR fixing anything out of date
 ## More loops
 
 - [loops!](https://loops.elorm.xyz/loops) by [elorm](https://elorm.xyz) — a searchable catalog of 40+ ready-to-copy loops for Claude Code, Cursor, and Codex.
+- [Agent QA](https://github.com/vostride/agent-qa) - The self-improving QA agent for software teams; persistent test memory turns repeated natural-language web and mobile checks into a feedback loop.
 
 ## Contributing
 
