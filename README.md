@@ -263,6 +263,7 @@ a PR fixing anything out of date
 ## More loops
 
 - [loops!](https://loops.elorm.xyz/loops) by [elorm](https://elorm.xyz) — a searchable catalog of 40+ ready-to-copy loops for Claude Code, Cursor, and Codex.
+- [Ponder](https://github.com/Quinnod345/ponder) by [Quinn O'Donnell](https://github.com/Quinnod345) - a coverage-gated, multi-pass deliberation loop CLI and skill (`npx @quinnod345/ponder`) for Claude Code and Codex that pairs with `/goal` so review passes cannot stop early or rubber-stamp changes.
 
 ## Contributing
 
